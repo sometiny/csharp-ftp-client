@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net452;net462;net5.0;net6.0;net8.0;</TargetFrameworks>
+		<RootNamespace>Zhger.Net.Ftp</RootNamespace>
+		<Optimize>true</Optimize>
+		<LangVersion>latest</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<OutputType>Library</OutputType>
+		<CheckEolTargetFramework>false</CheckEolTargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0'">
+		<PublishAot>true</PublishAot>
+		<PublishTrimmed>true</PublishTrimmed>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Remove="Vendor\Emitters\**" />
+	  <EmbeddedResource Remove="Vendor\Emitters\**" />
+	  <None Remove="Vendor\Emitters\**" />
+	</ItemGroup>
+</Project>
